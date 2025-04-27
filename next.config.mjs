@@ -1,19 +1,19 @@
-import { hostname } from 'os';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
     images: {
-        domains: ['utfs.io'],
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'utfs.io',
-                port: ''
-            }
-        ]
-
-    }
-};
-
-export default nextConfig;
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'utfs.io',
+          pathname: '/**',
+        },
+        {
+          protocol: 'https',
+          hostname: '*.ufs.sh', // Covers 9l2xynzcqu.ufs.sh and other subdomains
+          pathname: '/**',
+        },
+      ],
+    },
+  };
+  
+  export default nextConfig;
